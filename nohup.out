@@ -1,0 +1,3 @@
+sh: 0: Can't open /home/ttbond/*pycharm/bin/pycharm.sh
+could not load R package index cache, error was:
+java.io.FileNotFoundException: /home/ttbond/.PyCharmCE2017.3/system/r_skeletons/725233088/.libindex.dat (没有那个文件或目录)

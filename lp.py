@@ -5,7 +5,7 @@ import sys
 import time
 from sklearn.metrics import roc_curve
 import matplotlib.pyplot as plt
-SV_type="DUP"
+SV_type="INV"
 myData=np.loadtxt(SV_type)
 X=myData[:,range(1,32)]
 y=myData[:,[32]]

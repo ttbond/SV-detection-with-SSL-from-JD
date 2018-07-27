@@ -1,10 +1,12 @@
 import numpy as np
 import random
 from sklearn.semi_supervised import label_propagation
-from sklearn.datasets import make_circles
 import sys
 import time
-myData=np.loadtxt("INS")
+from sklearn.metrics import roc_curve
+import matplotlib.pyplot as plt
+SV_type="DUP"
+myData=np.loadtxt(SV_type)
 X=myData[:,range(1,32)]
 y=myData[:,[32]]
 label_p=50
@@ -35,6 +37,24 @@ for xunhuan in range(10):
     label_spread = label_propagation.LabelSpreading(kernel='knn', alpha=0.8,max_iter=300)
     begin_time=int(time.time()*1000)
     label_spread.fit(X,labels)
+#===============================================
+#Plot ROC curve
+    if xunhuan==0:
+        prob=label_spread.predict_proba(X)
+        tmprel=label_spread.predict(X)
+        prob=prob[:,[1]]
+        fpr,tpr,thresholds=roc_curve(y,prob,pos_label=1)
+        plt.plot(fpr,tpr,color='darkorange',lw=2,label=SV_type+' ROC curve')
+        plt.xlim([0.0,1.0])
+        plt.ylim([0.0,1.05])
+        plt.xlabel('False Positive Rate')
+        plt.ylabel('True Positive Rate')
+        plt.title('ROC')
+        plt.legend(loc="lower right")
+        plt.show()
+        sys.stdin.readline()
+#Plot ROC curve END
+#===============================================
     end_time=int(time.time()*1000)
     meantime+=end_time-begin_time
     rel=label_spread.transduction_

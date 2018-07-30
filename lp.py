@@ -5,7 +5,7 @@ import sys
 import time
 from sklearn.metrics import roc_curve
 import matplotlib.pyplot as plt
-SV_type="DEL"
+SV_type="INV"
 SV_fileName=SV_type+".rcd"
 SV_file=open(SV_fileName,'w')
 myData=np.loadtxt(SV_type)
@@ -52,6 +52,7 @@ for xunhuan in range(10):
         print('',file=SV_file)
         for i in range(len(tpr)):
             print(tpr[i],file=SV_file,end=' ')
+        print('',file=SV_file)
         plt.plot(fpr,tpr,color='darkorange',lw=2,label=SV_type+' ROC curve')
         plt.xlim([0.0,1.0])
         plt.ylim([0.0,1.05])

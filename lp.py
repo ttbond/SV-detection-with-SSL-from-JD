@@ -5,7 +5,9 @@ import sys
 import time
 from sklearn.metrics import roc_curve
 import matplotlib.pyplot as plt
-SV_type="INV"
+SV_type="DEL"
+SV_fileName=SV_type+".rcd"
+SV_file=open(SV_fileName,'w')
 myData=np.loadtxt(SV_type)
 X=myData[:,range(1,32)]
 y=myData[:,[32]]
@@ -44,6 +46,12 @@ for xunhuan in range(10):
         tmprel=label_spread.predict(X)
         prob=prob[:,[1]]
         fpr,tpr,thresholds=roc_curve(y,prob,pos_label=1)
+        print(len(tpr))
+        for i in range(len(fpr)):
+            print(fpr[i],file=SV_file,end=' ')
+        print('',file=SV_file)
+        for i in range(len(tpr)):
+            print(tpr[i],file=SV_file,end=' ')
         plt.plot(fpr,tpr,color='darkorange',lw=2,label=SV_type+' ROC curve')
         plt.xlim([0.0,1.0])
         plt.ylim([0.0,1.05])

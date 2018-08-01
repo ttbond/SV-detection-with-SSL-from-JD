@@ -1,7 +1,7 @@
 import sys
 import re
-sourceFile=open("ngs.ALL.info")
-relFile=open("ngs.ALL","w")
+sourceFile=open("ngsValidatedINV.info")
+relFile=open("ngs.INV","w")
 id=1
 while 1:
     print(id)

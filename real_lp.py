@@ -6,7 +6,7 @@ import time
 from sklearn.metrics import roc_curve
 import matplotlib.pyplot as plt
 from math import isnan
-SV_type="DEL"
+SV_type="INV"
 SV_fileName="ngs."+SV_type+".rcd"
 SV_file=open(SV_fileName,'w')
 simul_Data=np.loadtxt(SV_type)
@@ -16,6 +16,8 @@ X=myData[:,range(1,32)]
 y=myData[:,[32]]
 list_label_p=[0,5,10,20,30,40,50]
 for ind_label_p in range(7):
+    prob = np.array([])
+    rel_y = np.array([])
     label_p=list_label_p[ind_label_p]
     print("label_p:",label_p)
     acc=0
@@ -51,34 +53,20 @@ for ind_label_p in range(7):
         label_spread.fit(X,labels)
     #===============================================
     #Plot ROC curve
-        if xunhuan==0:
-            prob=label_spread.predict_proba(X[range(simul_Data.shape[0],X.shape[0]),:])
-            prob=prob[:,[1]]
-            for i in range(len(prob)):
-                if isnan(prob[i]):
-                    prob[i]=0
-            fpr,tpr,thresholds=roc_curve(y[range(simul_Data.shape[0],X.shape[0]),:],prob,pos_label=1)
-            #print(len(tpr))
-            for i in range(len(fpr)):
-                print(fpr[i],file=SV_file,end=' ')
-            print('',file=SV_file)
-            for i in range(len(tpr)):
-                print(tpr[i],file=SV_file,end=' ')
-            print('',file=SV_file)
-            '''
-            plt.plot(fpr,tpr,color='darkorange',lw=2,label=SV_type+' ROC curve')
-            plt.xlim([0.0,1.0])
-            plt.ylim([0.0,1.05])
-            plt.xlabel('False Positive Rate')
-            plt.ylabel('True Positive Rate')
-            plt.title('ROC')
-            plt.legend(loc="lower right")
-            plt.show()
-            '''
-            #sys.stdin.readline()
+        tmpFlag = np.array(flag)
+        tmp_prob = label_spread.predict_proba(X[np.where(tmpFlag == 0)[0], :])
+        tmprel = label_spread.predict(X)
+        if xunhuan == 0:
+            prob = tmp_prob[:, [1]]
+            rel_y = y[np.where(tmpFlag == 0)[0], :]
+        else:
+            prob = np.vstack((prob, tmp_prob[:, [1]]))
+            rel_y = np.vstack((rel_y, y[np.where(tmpFlag == 0)[0], :]))
+        for i in range(len(prob)):
+            if isnan(prob[i]):
+                prob[i] = 0
     #Plot ROC curve END
     #===============================================
-        break
         end_time=int(time.time()*1000)
         meantime+=end_time-begin_time
         rel=label_spread.transduction_
@@ -128,6 +116,13 @@ for ind_label_p in range(7):
         precnl+=tpnl/prelnumnl
         precl+=tpl/prelnuml
         prec+=tp/prelnum
+    fpr, tpr, thresholds = roc_curve(rel_y, prob, pos_label=1)
+    for i in range(len(fpr)):
+        print(fpr[i], file=SV_file, end=' ')
+    print('', file=SV_file)
+    for i in range(len(tpr)):
+        print(tpr[i], file=SV_file, end=' ')
+    print('', file=SV_file)
     print("Accuracy of no labels:",accnl/10)
     print("Accuracy of labels:",accl/10)
     print("Accuracy:",acc/10)

@@ -10,8 +10,8 @@ class com_class():
         else:
             return False
 sourceFile=open("ngs.ALL")
-refFile=open("ngs.DEL")
-relFile=open("ngs.NotDEL","w")
+refFile=open("ngs.INV")
+relFile=open("ngs.NotINV","w")
 refList=[]
 while 1:
     tmpStr=refFile.readline()

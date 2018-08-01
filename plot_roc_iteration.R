@@ -1,10 +1,10 @@
 library(ggplot2)
-dataFile <- file("DUP.rcd","r")
+dataFile <- file("only_ngs.DEL.rcd","r")
 label_p=c('5','10','20','30','40','50')
 x_data<-numeric()
 y_data<-numeric()
 type_data<-numeric()
-for(ii in 1:6){
+for(ii in 1:length(label_p)){
   line <- readLines(dataFile,n=1)
   line <- strsplit(line,' ')
   line <- unlist(line)
@@ -30,6 +30,6 @@ bb<-ggplot()+
   geom_line(data=all_data,aes(x=all_data[,1],y=all_data[,2],colour=all_data[,3]))+
   xlab("FPR")+
   ylab("TPR")+
-  labs(colour="Label Percentage",title="DUP ROC curve of simulated data")+
+  labs(colour="Label Percentage",title="DEL ROC curve of only_real data")+
   theme(plot.title = element_text(hjust=0.5))
 bb

@@ -9,9 +9,9 @@ class com_class():
             return True
         else:
             return False
-sourceFile=open("wgs.ALL")
-refFile=open("wgs.INS")
-relFile=open("wgs.NotINS","w")
+sourceFile=open("ngs.ALL")
+refFile=open("ngs.DEL")
+relFile=open("ngs.NotDEL","w")
 refList=[]
 while 1:
     tmpStr=refFile.readline()

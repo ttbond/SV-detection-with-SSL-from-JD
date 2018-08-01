@@ -72,10 +72,10 @@ class mydel():
         cls.types[tmpstr]=cls.typesId
         cls.typesId=cls.typesId+1
 
-notDelFile=open("wgs.NotINS")
-notDelRel=open("wgs.not.INS.rel","w")
-delFile=open("wgs.INS")
-delRel=open("wgs.INS.rel","w")
+notDelFile=open("ngs.NotDEL")
+notDelRel=open("ngs.not.DEL.rel","w")
+delFile=open("ngs.DEL")
+delRel=open("ngs.DEL.rel","w")
 myid=0
 while 1:
     tmpstr=notDelFile.readline()

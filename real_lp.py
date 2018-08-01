@@ -7,13 +7,15 @@ from sklearn.metrics import roc_curve
 import matplotlib.pyplot as plt
 from math import isnan
 SV_type="DEL"
-SV_fileName="only_ngs."+SV_type+".rcd"
+SV_fileName="ngs."+SV_type+".rcd"
 SV_file=open(SV_fileName,'w')
-myData=np.loadtxt("ngs_"+SV_type)
+simul_Data=np.loadtxt(SV_type)
+real_Data=np.loadtxt("ngs_"+SV_type)
+myData=np.vstack((simul_Data,real_Data))
 X=myData[:,range(1,32)]
 y=myData[:,[32]]
-list_label_p=[5,10,20,30,40,50]
-for ind_label_p in range(6):
+list_label_p=[0,5,10,20,30,40,50]
+for ind_label_p in range(7):
     label_p=list_label_p[ind_label_p]
     print("label_p:",label_p)
     acc=0
@@ -32,7 +34,11 @@ for ind_label_p in range(6):
         flag=[]
         noLabelNum=0
         for i in range(y.shape[0]):
-            ran=random.randint(0,99)
+            if i<simul_Data.shape[0]:
+                labels[i] = y[i, 0]
+                flag.append(1)
+                continue
+            ran = random.randint(0, 99)
             if ran<label_p:
                 labels[i]=y[i,0]
                 flag.append(1)
@@ -46,14 +52,12 @@ for ind_label_p in range(6):
     #===============================================
     #Plot ROC curve
         if xunhuan==0:
-            prob=label_spread.predict_proba(X)
-            tmprel=label_spread.predict(X)
-            print(prob)
+            prob=label_spread.predict_proba(X[range(simul_Data.shape[0],X.shape[0]),:])
             prob=prob[:,[1]]
             for i in range(len(prob)):
                 if isnan(prob[i]):
                     prob[i]=0
-            fpr,tpr,thresholds=roc_curve(y,prob,pos_label=1)
+            fpr,tpr,thresholds=roc_curve(y[range(simul_Data.shape[0],X.shape[0]),:],prob,pos_label=1)
             #print(len(tpr))
             for i in range(len(fpr)):
                 print(fpr[i],file=SV_file,end=' ')
@@ -74,6 +78,7 @@ for ind_label_p in range(6):
             #sys.stdin.readline()
     #Plot ROC curve END
     #===============================================
+        break
         end_time=int(time.time()*1000)
         meantime+=end_time-begin_time
         rel=label_spread.transduction_

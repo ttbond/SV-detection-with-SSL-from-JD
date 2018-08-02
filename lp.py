@@ -1,18 +1,20 @@
 import numpy as np
 import random
 from sklearn.semi_supervised import label_propagation
+from sklearn.metrics import auc
 import sys
 import time
 from sklearn.metrics import roc_curve
 import matplotlib.pyplot as plt
 from math import isnan
-SV_type="DEL"
+SV_type="DUP"
 SV_fileName="only_ngs."+SV_type+".rcd"
 SV_file=open(SV_fileName,'w')
 myData=np.loadtxt("ngs_"+SV_type)
 X=myData[:,range(1,32)]
 y=myData[:,[32]]
 list_label_p=[5,10,20,30,40,50]
+myAUC=np.array([])
 for ind_label_p in range(6):
     prob=np.array([])
     rel_y=np.array([])
@@ -123,6 +125,8 @@ for ind_label_p in range(6):
         precl+=tpl/prelnuml
         prec+=tp/prelnum
     fpr, tpr, thresholds = roc_curve(rel_y, prob, pos_label=1)
+    tmpAUC = auc(fpr, tpr, reorder=False)
+    myAUC = np.append(myAUC, tmpAUC)
     for i in range(len(fpr)):
         print(fpr[i], file=SV_file, end=' ')
     print('', file=SV_file)
@@ -139,5 +143,7 @@ for ind_label_p in range(6):
     print("Precision of labels:",precl/10)
     print("Precision:",prec/10)
     print("Time used:",meantime/10)
-
+for i in range(len(myAUC)):
+    print(myAUC[i],file=SV_file,end=' ')
+print('',file=SV_file)
 

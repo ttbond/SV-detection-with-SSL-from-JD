@@ -1,6 +1,7 @@
 library(ggplot2)
-dataFile <- file("ngs.INV.rcd","r")
-label_p=c('0','5','10','20','30','40','50')
+sv_type<-"INS"
+dataFile <- file(paste("ngs",sv_type,"rcd",sep='.'),"r")
+label_p=c('5','10','20','30','40','50')
 x_data<-numeric()
 y_data<-numeric()
 type_data<-numeric()
@@ -39,6 +40,6 @@ bb<-ggplot()+
   geom_line(data=all_data,aes(x=all_data[,1],y=all_data[,2],colour=all_data[,3]))+
   xlab("FPR")+
   ylab("TPR")+
-  labs(colour="Label Percentage",title="INV ROC curve of combined data")+
+  labs(colour="Label Percentage",title=paste(sv_type," ROC curve of simulated data",sep=''))+
   theme(plot.title = element_text(hjust=0.5))
-bb
+print(bb)

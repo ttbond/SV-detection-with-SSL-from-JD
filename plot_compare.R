@@ -1,6 +1,6 @@
 library(ggplot2)
-SV_type="INS"
-dataFile <- file(paste("ngs.compare.",SV_type,".rcd",sep=''),"r")
+SV_type="DEL"
+dataFile <- file(paste("ngs2.compare.",SV_type,".rcd",sep=''),"r")
 label_p<-c(5,10,20,30,40,50)
 x_data<-numeric()
 y_data<-numeric()
@@ -27,5 +27,5 @@ bb<-ggplot()+
   ylab("AUC")+
   labs(colour="Method",title=paste(SV_type,"AUC of Simulated Data"))+
   theme(plot.title = element_text(hjust=0.5))+
-  legend(title="abc")
+  
 print(bb)

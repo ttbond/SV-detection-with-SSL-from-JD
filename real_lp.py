@@ -10,16 +10,16 @@ from math import isnan
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 SV_type="DEL"
-SV_fileName="ngs."+SV_type+".rcd"
+SV_fileName="ngs2."+SV_type+".rcd"
 SV_file=open(SV_fileName,'w')
-compare_file=open("ngs.compare."+SV_type+".rcd",'w')
-simul_Data=np.loadtxt(SV_type)
-#real_Data=np.loadtxt("ngs_"+SV_type)
+compare_file=open("ngs2.compare."+SV_type+".rcd",'w')
+#simul_Data=np.loadtxt(SV_type)
+real_Data=np.loadtxt("ngs2_"+SV_type)
 
 
 #myData=np.vstack((simul_Data,real_Data))
-myData=simul_Data
-#myData=real_Data
+#myData=simul_Data
+myData=real_Data
 
 X=myData[:,range(1,32)]
 y=myData[:,[32]]
@@ -168,6 +168,7 @@ for ind_label_p in range(len(list_label_p)):
         prec+=tp/prelnum
     #statistic lp relative targets end
     #=========================================================
+
 
     # ====================================================
     # svm statistical data
@@ -321,6 +322,7 @@ for ind_label_p in range(len(list_label_p)):
     tmpAUC = auc(fpr, tpr, reorder=False)
     rf_AUC = np.append(rf_AUC, tmpAUC)
 
+
     for i in range(len(fpr)):
         print(fpr[i], file=SV_file, end=' ')
     print('', file=SV_file)
@@ -344,6 +346,7 @@ for ind_label_p in range(len(list_label_p)):
 for i in range(len(myAUC)):
     print(myAUC[i],file=SV_file,end=' ')
 print('',file=SV_file)
+
 
 for i in myAUC:
     print(i,file=compare_file,end=' ')

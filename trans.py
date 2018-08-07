@@ -1,7 +1,7 @@
 import sys
 import re
-sourceFile=open("ngsValidatedINV.info")
-relFile=open("ngs.INV","w")
+sourceFile=open("ngs2NotValidated.info")
+relFile=open("ngs2.NotDEL","w")
 id=1
 while 1:
     print(id)

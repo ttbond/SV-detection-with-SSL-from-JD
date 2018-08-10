@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from math import isnan
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
-SV_type="DEL"
+SV_type="DUP"
 SV_fileName="ngs2."+SV_type+".rcd"
 SV_file=open(SV_fileName,'w')
 compare_file=open("ngs2.compare."+SV_type+".rcd",'w')
@@ -169,7 +169,7 @@ for ind_label_p in range(len(list_label_p)):
     #statistic lp relative targets end
     #=========================================================
 
-
+    
     # ====================================================
     # svm statistical data
         svm_train_x = np.delete(X, np.where(np.array(flag) == 0), axis=0)

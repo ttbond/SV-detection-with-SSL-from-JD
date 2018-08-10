@@ -1,7 +1,7 @@
 import sys
 import re
-sourceFile=open("ngs2NotValidated.info")
-relFile=open("ngs2.NotDEL","w")
+sourceFile=open("ngs2ValidatedDUP.info")
+relFile=open("ngs2.DUP","w")
 id=1
 while 1:
     print(id)

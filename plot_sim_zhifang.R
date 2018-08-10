@@ -24,7 +24,7 @@ for(sv in SV_type){
 method_data<-rep(c("lp","svm","randomforest"),4)
 all_data=data.frame(sv_data,auc_data,method_data)
 all_data$method_data<-factor(all_data$method_data,levels=(c("svm","lp","randomforest")))
-bb<-ggplot(data=all_data,aes(x=sv_data,y=auc_data,fill=method_data))+
+bb2<-ggplot(data=all_data,aes(x=sv_data,y=auc_data,fill=method_data))+
     geom_bar(stat="identity",position='dodge')+
     xlab("SV type")+
     ylab("AUC value")+

@@ -1198,6 +1198,7 @@
       <w>GeomDensity</w>
       <w>GeomDensity2d</w>
       <w>GeomDotplot</w>
+      <w>GeomDrawGrob</w>
       <w>GeomErrorbar</w>
       <w>GeomErrorbarh</w>
       <w>GeomHex</w>
@@ -3543,6 +3544,7 @@
       <w>add_row</w>
       <w>add_rownames</w>
       <w>add_step</w>
+      <w>add_sub</w>
       <w>add_tally</w>
       <w>add_tally_</w>
       <w>add_with_rollback</w>
@@ -3600,6 +3602,8 @@
       <w>alignDaily</w>
       <w>alignMonthly</w>
       <w>alignQuarterly</w>
+      <w>align_margin</w>
+      <w>align_plots</w>
       <w>alist</w>
       <w>all</w>
       <w>all.bit</w>
@@ -3736,6 +3740,7 @@
       <w>arot</w>
       <w>arow</w>
       <w>arrange</w>
+      <w>arrangeGrob</w>
       <w>arrange_</w>
       <w>arrange_all</w>
       <w>arrange_at</w>
@@ -4095,11 +4100,13 @@
       <w>axis.default</w>
       <w>axis.timeDate</w>
       <w>axisTicks</w>
+      <w>axis_canvas</w>
       <w>b</w>
       <w>baby</w>
       <w>backGround</w>
       <w>backSpline</w>
       <w>backdoor</w>
+      <w>background_grid</w>
       <w>backports</w>
       <w>backsolve</w>
       <w>backtick</w>
@@ -5027,6 +5034,7 @@
       <w>covers</w>
       <w>covfix</w>
       <w>covratio</w>
+      <w>cowplot</w>
       <w>cox.ph</w>
       <w>cox.zph</w>
       <w>coxExponential.lvm</w>
@@ -5613,6 +5621,9 @@
       <w>draw.key</w>
       <w>draw.tetra</w>
       <w>drawDetails</w>
+      <w>draw_figure_label</w>
+      <w>draw_grob</w>
+      <w>draw_image</w>
       <w>draw_key_abline</w>
       <w>draw_key_blank</w>
       <w>draw_key_boxplot</w>
@@ -5628,6 +5639,11 @@
       <w>draw_key_text</w>
       <w>draw_key_vline</w>
       <w>draw_key_vpath</w>
+      <w>draw_label</w>
+      <w>draw_line</w>
+      <w>draw_plot</w>
+      <w>draw_plot_label</w>
+      <w>draw_text</w>
       <w>drivers</w>
       <w>drop</w>
       <w>drop.levels</w>
@@ -5736,6 +5752,7 @@
       <w>element_rect</w>
       <w>element_text</w>
       <w>elev</w>
+      <w>ellipseGrob</w>
       <w>ellipsePoints</w>
       <w>ellipse_check</w>
       <w>ellipses</w>
@@ -6582,7 +6599,9 @@
       <w>get_env</w>
       <w>get_expr</w>
       <w>get_extent</w>
+      <w>get_legend</w>
       <w>get_max_extent</w>
+      <w>get_panel</w>
       <w>get_showHeadLines</w>
       <w>get_showTailLines</w>
       <w>get_spinner</w>
@@ -6599,6 +6618,7 @@
       <w>gevlss</w>
       <w>geyser</w>
       <w>gg_dep</w>
+      <w>ggdraw</w>
       <w>ggplot</w>
       <w>ggplot2</w>
       <w>ggplotGrob</w>
@@ -6689,6 +6709,7 @@
       <w>grid.DLapply</w>
       <w>grid.abline</w>
       <w>grid.add</w>
+      <w>grid.arrange</w>
       <w>grid.arrows</w>
       <w>grid.bezier</w>
       <w>grid.cap</w>
@@ -6706,6 +6727,7 @@
       <w>grid.display.list</w>
       <w>grid.draw</w>
       <w>grid.edit</w>
+      <w>grid.ellipse</w>
       <w>grid.force</w>
       <w>grid.frame</w>
       <w>grid.function</w>
@@ -6727,6 +6749,7 @@
       <w>grid.move.to</w>
       <w>grid.multipanel</w>
       <w>grid.newpage</w>
+      <w>grid.ngon</w>
       <w>grid.null</w>
       <w>grid.pack</w>
       <w>grid.panel</w>
@@ -6750,10 +6773,12 @@
       <w>grid.show.layout</w>
       <w>grid.show.viewport</w>
       <w>grid.strip</w>
+      <w>grid.table</w>
       <w>grid.text</w>
       <w>grid.xaxis</w>
       <w>grid.xspline</w>
       <w>grid.yaxis</w>
+      <w>gridExtra</w>
       <w>grob</w>
       <w>grobAscent</w>
       <w>grobDescent</w>
@@ -6795,14 +6820,20 @@
       <w>gtable_add_padding</w>
       <w>gtable_add_row_space</w>
       <w>gtable_add_rows</w>
+      <w>gtable_cbind</w>
       <w>gtable_col</w>
       <w>gtable_col_spacer</w>
+      <w>gtable_combine</w>
       <w>gtable_filter</w>
       <w>gtable_height</w>
       <w>gtable_matrix</w>
+      <w>gtable_rbind</w>
+      <w>gtable_remove_grobs</w>
       <w>gtable_row</w>
       <w>gtable_row_spacer</w>
       <w>gtable_show_layout</w>
+      <w>gtable_squash_cols</w>
+      <w>gtable_squash_rows</w>
       <w>gtable_trim</w>
       <w>gtable_width</w>
       <w>gtools</w>
@@ -7084,6 +7115,8 @@
       <w>insertTab</w>
       <w>insertText</w>
       <w>insertUI</w>
+      <w>insert_xaxis_grob</w>
+      <w>insert_yaxis_grob</w>
       <w>inset</w>
       <w>inset2</w>
       <w>install.packages</w>
@@ -8112,6 +8145,7 @@
       <w>margin2table</w>
       <w>markRenderFunction</w>
       <w>markTime</w>
+      <w>marrangeGrob</w>
       <w>maskReactiveContext</w>
       <w>maskedratio</w>
       <w>maskedwidth</w>
@@ -8583,6 +8617,7 @@
       <w>nfGroupedData</w>
       <w>nfactors</w>
       <w>ngettext</w>
+      <w>ngonGrob</w>
       <w>nhit</w>
       <w>nhtemp</w>
       <w>nir_list</w>
@@ -8907,6 +8942,7 @@
       <w>panel.violin</w>
       <w>panel.wireframe</w>
       <w>panel.xyplot</w>
+      <w>panel_border</w>
       <w>panel_cols</w>
       <w>panel_rows</w>
       <w>panmagic.4</w>
@@ -9145,8 +9181,10 @@
       <w>plotViewport</w>
       <w>plot_R_NX</w>
       <w>plot_closest</w>
+      <w>plot_grid</w>
       <w>plot_hex</w>
       <w>plot_mnsl</w>
+      <w>plot_to_gtable</w>
       <w>plotcp</w>
       <w>plotmeans</w>
       <w>pls</w>
@@ -9203,6 +9241,7 @@
       <w>polydot</w>
       <w>polygon</w>
       <w>polygonGrob</w>
+      <w>polygon_regular</w>
       <w>polylineGrob</w>
       <w>polym</w>
       <w>polyn.eval</w>
@@ -10242,6 +10281,7 @@
       <w>savePlotAsImage</w>
       <w>saveRDS</w>
       <w>save_html</w>
+      <w>save_plot</w>
       <w>savehistory</w>
       <w>sbf</w>
       <w>sbfControl</w>
@@ -10270,6 +10310,7 @@
       <w>scale_color_hue</w>
       <w>scale_color_identity</w>
       <w>scale_color_manual</w>
+      <w>scale_color_viridis</w>
       <w>scale_color_viridis_c</w>
       <w>scale_color_viridis_d</w>
       <w>scale_colour_brewer</w>
@@ -10286,6 +10327,7 @@
       <w>scale_colour_identity</w>
       <w>scale_colour_manual</w>
       <w>scale_colour_ordinal</w>
+      <w>scale_colour_viridis</w>
       <w>scale_colour_viridis_c</w>
       <w>scale_colour_viridis_d</w>
       <w>scale_continuous_identity</w>
@@ -10305,6 +10347,7 @@
       <w>scale_fill_identity</w>
       <w>scale_fill_manual</w>
       <w>scale_fill_ordinal</w>
+      <w>scale_fill_viridis</w>
       <w>scale_fill_viridis_c</w>
       <w>scale_fill_viridis_d</w>
       <w>scale_linetype</w>
@@ -11560,6 +11603,7 @@
       <w>table4b</w>
       <w>table5</w>
       <w>tableF</w>
+      <w>tableGrob</w>
       <w>tableOutput</w>
       <w>tables</w>
       <w>tabs_as_spaces</w>
@@ -11686,13 +11730,16 @@
       <w>theme</w>
       <w>theme_bw</w>
       <w>theme_classic</w>
+      <w>theme_cowplot</w>
       <w>theme_dark</w>
       <w>theme_get</w>
       <w>theme_gray</w>
       <w>theme_grey</w>
       <w>theme_light</w>
       <w>theme_linedraw</w>
+      <w>theme_map</w>
       <w>theme_minimal</w>
+      <w>theme_nothing</w>
       <w>theme_replace</w>
       <w>theme_set</w>
       <w>theme_test</w>
@@ -12100,6 +12147,8 @@
       <w>tsearchn</w>
       <w>tsp</w>
       <w>tstrsplit</w>
+      <w>ttheme_default</w>
+      <w>ttheme_minimal</w>
       <w>ttkbutton</w>
       <w>ttkcheckbutton</w>
       <w>ttkcombobox</w>

@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from math import isnan
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
-SV_type="DUP"
+SV_type="DEL"
 SV_fileName="ngs2."+SV_type+".rcd"
 SV_file=open(SV_fileName,'w')
 compare_file=open("ngs2.compare."+SV_type+".rcd",'w')
@@ -23,7 +23,7 @@ myData=real_Data
 
 X=myData[:,range(1,32)]
 y=myData[:,[32]]
-list_label_p=[5,10,20,30,40,50]
+list_label_p=[3,5,10,20,30,40,50]
 myAUC=np.array([])
 svm_AUC=np.array([])
 rf_AUC=np.array([])

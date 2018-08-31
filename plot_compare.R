@@ -1,7 +1,7 @@
 library(ggplot2)
 SV_type="DEL"
 dataFile <- file(paste("ngs2.compare.",SV_type,".rcd",sep=''),"r")
-label_p<-c(5,10,20,30,40,50)
+label_p<-c(3,5,10,20,30,40,50)
 x_data<-numeric()
 y_data<-numeric()
 x_data<-c(label_p,label_p,label_p)
@@ -26,6 +26,6 @@ bb<-ggplot()+
   xlab("Label Percentage")+
   ylab("AUC")+
   labs(colour="Method",title=paste(SV_type,"AUC of Simulated Data"))+
-  theme(plot.title = element_text(hjust=0.5))+
+  theme(plot.title = element_text(hjust=0.5))
   
 print(bb)
